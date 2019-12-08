@@ -4,22 +4,16 @@ import java.util.ArrayList;
 
 import static common.FileLoader.loadCommaFile;
 
-public class Opcodes {
+public class OpcodesPart2 {
     public static void main(String[] args) {
-        ArrayList<Integer> code = loadCommaFile("inputFiles/day2/input.txt");
-        code.set(1, 12);
-        code.set(2, 2);
+        ArrayList<Integer> codeList = loadCommaFile("inputFiles/day2/inputpart.txt");
+        codeList.set(1, 12);
+        codeList.set(2, 2);
 
-        System.out.println(runOpcode(code).get(0));
+        System.out.println(backTrackOpcode(codeList).get(0));
     }
 
-    /**
-     * Process Intcodes as specified at https://adventofcode.com/2019/day/2
-     *
-     * @param opcode ArrayList of opcodes to be processed
-     * @return ArrayList of opcodes after they have been matched
-     */
-    public static ArrayList<Integer> runOpcode(ArrayList<Integer> opcode) {
+    public static ArrayList<Integer> backTrackOpcode(ArrayList<Integer> opcode) {
         System.out.println("Start Code" + opcode);
         for (int i = 0; i < opcode.size(); i += 4) {
             switch (opcode.get(i)) {
