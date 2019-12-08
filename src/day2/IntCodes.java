@@ -20,7 +20,7 @@ public class IntCodes {
      * @return ArrayList of opcodes after they have been matched
      */
     public static ArrayList<Integer> runOpcode(ArrayList<Integer> IntCode) {
-        System.out.println("Start Code" + IntCode);
+        //System.out.println("Start Code" + IntCode);
         for (int i = 0; i < IntCode.size(); i += 4) {
             switch (IntCode.get(i)) {
                 case 99:
@@ -35,7 +35,7 @@ public class IntCodes {
                     break;
             }
         }
-        System.out.println("End Code: " + IntCode);
+        //System.out.println("End Code: " + IntCode);
         return IntCode;
     }
 }
