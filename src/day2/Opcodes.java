@@ -7,8 +7,10 @@ import java.util.ArrayList;
 
 public class Opcodes {
     public static void main(String[] args) {
-        ArrayList<Integer> code = new ArrayList<>();
+        ArrayList<Integer> code;
         code = loadFile("inputFiles/day2/input.txt");
+        code.set(1, 12);
+        code.set(2, 2);
 
         System.out.println(runOpcode(code));
     }
