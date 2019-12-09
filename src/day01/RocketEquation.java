@@ -1,4 +1,4 @@
-package day1;
+package day01;
 
 import common.FileLoader;
 
@@ -20,7 +20,7 @@ public class RocketEquation {
      * @param mass Mass of the object
      * @return required mass of fuel
      */
-    public static int calculateFuel(int mass) {
+    static int calculateFuel(int mass) {
         return (int) Math.floor(mass / 3) - 2;
     }
 }

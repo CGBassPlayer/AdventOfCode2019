@@ -1,10 +1,10 @@
-package day1;
+package day01;
 
 import common.FileLoader;
 
 import java.util.ArrayList;
 
-import static day1.RocketEquation.calculateFuel;
+import static day01.RocketEquation.calculateFuel;
 
 public class RocketEquationPart2 {
     public static void main(String[] args) {

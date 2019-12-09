@@ -1,4 +1,4 @@
-package day2;
+package day02;
 
 import common.FileLoader;
 
@@ -16,26 +16,26 @@ public class IntCodes {
     /**
      * Process Intcodes as specified at https://adventofcode.com/2019/day/2
      *
-     * @param IntCode ArrayList of opcodes to be processed
+     * @param intCode ArrayList of opcodes to be processed
      * @return ArrayList of opcodes after they have been matched
      */
-    public static ArrayList<Integer> runOpcode(ArrayList<Integer> IntCode) {
-        //System.out.println("Start Code" + IntCode);
-        for (int i = 0; i < IntCode.size(); i += 4) {
-            switch (IntCode.get(i)) {
+    static ArrayList<Integer> runOpcode(ArrayList<Integer> intCode) {
+        //System.out.println("Start Code" + intCode);
+        for (int i = 0; i < intCode.size(); i += 4) {
+            switch (intCode.get(i)) {
                 case 99:
                     break;
                 case 1:
-                    IntCode.set(IntCode.get(i + 3),
-                            IntCode.get(IntCode.get(i + 1)) + IntCode.get(IntCode.get(i + 2)));
+                    intCode.set(intCode.get(i + 3),
+                            intCode.get(intCode.get(i + 1)) + intCode.get(intCode.get(i + 2)));
                     break;
                 case 2:
-                    IntCode.set(IntCode.get(i + 3),
-                            IntCode.get(IntCode.get(i + 1)) * IntCode.get(IntCode.get(i + 2)));
+                    intCode.set(intCode.get(i + 3),
+                            intCode.get(intCode.get(i + 1)) * intCode.get(intCode.get(i + 2)));
                     break;
             }
         }
-        //System.out.println("End Code: " + IntCode);
-        return IntCode;
+        //System.out.println("End Code: " + intCode);
+        return intCode;
     }
 }
