@@ -8,7 +8,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class IntCodesPart2 {
     public static void main(String[] args) {
         while (true) {
-            ArrayList<Integer> codeList = FileLoader.loadCommaFile("inputFiles/day2/input.txt");
+            ArrayList<Integer> codeList = FileLoader.loadCommaIntFile("inputFiles/day2/input.txt");
             int noun = ThreadLocalRandom.current().nextInt(0, 99);
             int verb = ThreadLocalRandom.current().nextInt(0, 99);
             codeList.set(1, noun);

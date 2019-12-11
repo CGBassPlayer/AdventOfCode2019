@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class FileLoader {
 
@@ -14,7 +16,7 @@ public class FileLoader {
      * @param path path of the file to load
      * @return ArrayList of Integers in the file
      */
-    public static ArrayList<Integer> loadCommaFile(String path) {
+    public static ArrayList<Integer> loadCommaIntFile(String path) {
         ArrayList<Integer> codeList = new ArrayList<>();
         String bigToke;
         String[] tokens;
@@ -40,7 +42,7 @@ public class FileLoader {
      * @param lineNumber line number to be loaded
      * @return ArrayList of Integers in the file
      */
-    public static ArrayList<Integer> loadSingleLineCommaFile(String path, int lineNumber) {
+    public static ArrayList<Integer> loadSingleLineCommaIntFile(String path, int lineNumber) {
         ArrayList<Integer> codeList = new ArrayList<>();
         String[] tokens;
 
@@ -61,12 +63,38 @@ public class FileLoader {
     }
 
     /**
+     * Loads a specific line of a comma separated file of numbers into an ArrayList of Strings
+     *
+     * @param path       path of the file to load
+     * @param lineNumber line number to be loaded
+     * @return ArrayList of Strings in the file
+     */
+    public static ArrayList<String> loadSingleLineCommaStringFile(String path, int lineNumber) {
+        ArrayList<String> codeList = new ArrayList<>();
+        String[] tokens = new String[1000];
+
+        try (LineNumberReader in = new LineNumberReader(new FileReader(path))) {
+            for (String line; (line = in.readLine()) != null; ) {
+                if (in.getLineNumber() == lineNumber) {
+                    String[] codes = line.split(",");
+                    Collections.addAll(codeList, codes);
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("Failed to load File");
+            e.printStackTrace();
+        }
+
+        return codeList;
+    }
+
+    /**
      * loads a line separated file of numbers into an ArrayList of integers
      *
      * @param path path of the file to load
      * @return ArrayList of Integers in the file
      */
-    public static ArrayList<Integer> loadNewLineFile(String path) {
+    public static ArrayList<Integer> loadNewLineIntFile(String path) {
         ArrayList<Integer> codeList = new ArrayList<>();
         String token;
 

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class IntCodes {
     public static void main(String[] args) {
-        ArrayList<Integer> code = FileLoader.loadCommaFile("inputFiles/day2/input.txt");
+        ArrayList<Integer> code = FileLoader.loadCommaIntFile("inputFiles/day2/input.txt");
         code.set(1, 12);
         code.set(2, 2);
 
