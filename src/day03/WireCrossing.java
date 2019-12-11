@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class WireCrossing {
     public static void main(String[] args) {
-        ArrayList<String> wireADirections = FileLoader.loadSingleLineCommaStringFile("inputFiles/day03/input.txt", 1);
-        ArrayList<String> wireBDirections = FileLoader.loadSingleLineCommaStringFile("inputFiles/day03/input.txt", 2);
+        ArrayList<String> wireADirections = FileLoader.loadSingleLineCommaStringFile("inputFiles/day03/day1.elf", 1);
+        ArrayList<String> wireBDirections = FileLoader.loadSingleLineCommaStringFile("inputFiles/day03/day1.elf", 2);
 
         findClosestCrossing(wireADirections, wireBDirections);
     }
