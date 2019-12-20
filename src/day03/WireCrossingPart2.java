@@ -35,10 +35,10 @@ public class WireCrossingPart2 {
 
     private static int findIndex(ArrayList<int[]> array, int[] lookingFor) {
         int index = -3;
-        for(int i=0; i<array.size(); i++){
+        for (int i = 0; i < array.size(); i++) {
             int[] node = new int[]{array.get(i)[0], array.get(i)[1]};
-            if(Arrays.equals(node, lookingFor)){
-                index = i;
+            if (Arrays.equals(node, lookingFor)) {
+                index = i + 1;
                 break;
             }
         }
