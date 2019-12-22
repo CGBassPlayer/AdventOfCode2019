@@ -14,9 +14,7 @@ public class SecureContainer {
     public static ArrayList<Integer> getPossibleSolutions(int low, int high) {
         ArrayList<Integer> totalPasswords = new ArrayList<>();
         for (int i = low; i < high; i++) {
-            if (i == 345678 || i == 456789)
-                System.out.println(i + ", " + hasAscendingDigits(i) + ", " + hasDouble(i));
-            if (hasAscendingDigits(i) && hasDouble(i)) {
+            if (hasAscendingDigits(i) && contiansDoubles(i)) {
                 totalPasswords.add(i);
             }
         }
@@ -47,17 +45,12 @@ public class SecureContainer {
         return true;
     }
 
-    public static boolean hasDouble(int number) {
+    public static boolean contiansDoubles(int number) {
         String num = String.valueOf(number);
         for (int i = 1; i < num.length() - 1; i++) {
             int preDigit = Character.digit(num.charAt(i - 1), 10);
             int digit = Character.digit(num.charAt(i), 10);
-            int postDigit;
-            if (i + 1 == num.length()) {
-                postDigit = 9;
-            } else {
-                postDigit = Character.digit(num.charAt(i + 1), 10);
-            }
+            int postDigit = Character.digit(num.charAt(i + 1), 10);
 
             if (preDigit == digit || digit == postDigit) {
                 return true;
