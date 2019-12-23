@@ -14,7 +14,7 @@ public class SecureContainer {
     public static ArrayList<Integer> getPossibleSolutions(int low, int high) {
         ArrayList<Integer> totalPasswords = new ArrayList<>();
         for (int i = low; i < high; i++) {
-            if (hasAscendingDigits(i) && contiansDoubles(i)) {
+            if (hasAscendingDigits(i) && containsDoubles(i)) {
                 totalPasswords.add(i);
             }
         }
@@ -45,7 +45,7 @@ public class SecureContainer {
         return true;
     }
 
-    public static boolean contiansDoubles(int number) {
+    public static boolean containsDoubles(int number) {
         String num = String.valueOf(number);
         for (int i = 1; i < num.length() - 1; i++) {
             int preDigit = Character.digit(num.charAt(i - 1), 10);

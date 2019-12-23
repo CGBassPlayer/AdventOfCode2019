@@ -4,7 +4,6 @@ import common.FileLoader;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -22,8 +21,7 @@ public class SecureContainerPart2 {
     public static ArrayList<Integer> getPossibleSolutions(int low, int high) {
         ArrayList<Integer> totalPasswords = new ArrayList<>();
         for (int i = low; i < high; i++) {
-            if (SecureContainer.hasAscendingDigits(i) && SecureContainer.contiansDoubles(i) && hasDoubles(i)) {
-                System.out.println(i);
+            if (SecureContainer.hasAscendingDigits(i) && hasDoubles(i)) {
                 totalPasswords.add(i);
             }
         }
@@ -34,46 +32,10 @@ public class SecureContainerPart2 {
         String[] digits = String.valueOf(number)
                 .split("");
 
-        Arrays.stream(digits)
+        return Arrays.stream(digits)
                 .collect(Collectors.groupingBy(s -> s))
-                .forEach((k, v) -> System.out.println(number + ": " + v.size() + " occurrences of " + k));
-
-        return false;
-
-
-//        boolean foundDouble = false;
-//        int doubleFound = -1;
-//        String num = String.valueOf(number);
-//        for (int i = 1; i < num.length() - 1; i++) {
-//            int preDigit = Character.digit(num.charAt(i - 1), 10);
-//            int digit = Character.digit(num.charAt(i), 10);
-//            int postDigit = Character.digit(num.charAt(i + 1), 10);
-//
-//            if(i != 1 && doubleFound != -1) {
-//                //if (!containsTriple(number)) {
-//                    foundDouble = true;
-//                //}
-//            }
-//
-//            if ((preDigit == digit && digit != postDigit ) || ( preDigit != digit &&  digit == postDigit)) {
-//                doubleFound = digit;
-//            }
-//        }
-//        return foundDouble;
+                .entrySet()
+                .stream()
+                .anyMatch((k) -> k.getValue().size() == 2);
     }
-
-//    private static boolean containsTriple(int number){
-//        boolean tripleFound = false;
-//        String num = String.valueOf(number);
-//        for (int i = 1; i < num.length() - 1; i++) {
-//            int preDigit = Character.digit(num.charAt(i - 1), 10);
-//            int digit = Character.digit(num.charAt(i), 10);
-//            int postDigit = Character.digit(num.charAt(i + 1), 10);
-//
-//            if(preDigit == digit && digit == postDigit){
-//                tripleFound = true;
-//            }
-//        }
-//        return tripleFound;
-//    }
 }
