@@ -3,7 +3,14 @@ package day04;
 import common.FileLoader;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
+/**
+ * SecureContainerPart2.java
+ *
+ * @author Ryan Goodwin on 12/22/2019.
+ */
 public class SecureContainerPart2 {
     public static void main(String[] args) {
         ArrayList<Integer> range = FileLoader.loadNewLineIntFile("inputfiles/day04.dat");
@@ -14,25 +21,19 @@ public class SecureContainerPart2 {
     public static ArrayList<Integer> getPossibleSolutions(int low, int high) {
         ArrayList<Integer> totalPasswords = new ArrayList<>();
         for (int i = low; i < high; i++) {
-            if (SecureContainer.hasAscendingDigits(i) && SecureContainer.containsADouble(i) && hasDoubles(i)) {
-                System.out.println(i);
+            if (SecureContainer.hasAscendingDigits(i) && hasDoubles(i)) {
                 totalPasswords.add(i);
             }
         }
         return totalPasswords;
     }
 
-    public static boolean hasDoubles(int number) {
-        String num = String.valueOf(number);
-        for (int i = 1; i < num.length() - 1; i++) {
-            int preDigit = Character.digit(num.charAt(i - 1), 10);
-            int digit = Character.digit(num.charAt(i), 10);
-            int postDigit = Character.digit(num.charAt(i + 1), 10);
-
-            if (preDigit == digit && digit == postDigit) {
-                return false;
-            }
-        }
-        return true;
+    private static boolean hasDoubles(int number) {
+        return Arrays.stream(String.valueOf(number)
+                .split(""))
+                .collect(Collectors.groupingBy(s -> s))
+                .entrySet()
+                .stream()
+                .anyMatch((k) -> k.getValue().size() == 2);
     }
 }
