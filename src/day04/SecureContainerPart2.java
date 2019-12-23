@@ -29,10 +29,8 @@ public class SecureContainerPart2 {
     }
 
     private static boolean hasDoubles(int number) {
-        String[] digits = String.valueOf(number)
-                .split("");
-
-        return Arrays.stream(digits)
+        return Arrays.stream(String.valueOf(number)
+                .split(""))
                 .collect(Collectors.groupingBy(s -> s))
                 .entrySet()
                 .stream()
