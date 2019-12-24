@@ -38,11 +38,11 @@ public class IntCodePC {
                     break;
                 case 1:
                     parameters = 3;
-                    value = input.get(input.get(index + 1)) + input.get(input.get(index + 2)));
+                    value = input.get(input.get(index + 1)) + input.get(input.get(index + 2));
                     break;
                 case 2:
                     parameters = 3;
-                    value = input.get(input.get(index + 1)) * input.get(input.get(index + 2)));
+                    value = input.get(input.get(index + 1)) * input.get(input.get(index + 2));
                     break;
                 case 3:
                     parameters = 1;
