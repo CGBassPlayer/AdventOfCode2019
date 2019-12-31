@@ -9,7 +9,7 @@ import static day01.RocketEquation.calculateFuel;
 public class RocketEquationPart2 {
     public static void main(String[] args) {
         // Get Ship List
-        ArrayList<Integer> rocketMass = FileLoader.loadNewLineIntFile("inputfiles/day01.dat");
+        ArrayList<Integer> rocketMass = FileLoader.loadNewLineIntFile("input_files/day01.dat");
         int totalFuel = 0;
 
         for (Integer mass : rocketMass) {

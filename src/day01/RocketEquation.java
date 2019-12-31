@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class RocketEquation {
     public static void main(String[] args) {
-        ArrayList<Integer> rocketMass = FileLoader.loadNewLineIntFile("inputfiles/day01.dat");
+        ArrayList<Integer> rocketMass = FileLoader.loadNewLineIntFile("input_files/day01.dat");
         int totalFuel = 0;
 
         for (Integer mass : rocketMass) totalFuel += calculateFuel(mass);

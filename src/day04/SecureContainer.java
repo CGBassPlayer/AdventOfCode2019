@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class SecureContainer {
     public static void main(String[] args) {
-        ArrayList<Integer> range = FileLoader.loadNewLineIntFile("inputfiles/day04.dat");
+        ArrayList<Integer> range = FileLoader.loadNewLineIntFile("input_files/day04.dat");
         ArrayList<Integer> solutions = getPossibleSolutions(range.get(0), range.get(1));
         System.out.println("Total possible passwords: " + solutions.size());
     }

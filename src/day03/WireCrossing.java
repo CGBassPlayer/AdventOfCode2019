@@ -8,8 +8,8 @@ import java.util.Collections;
 
 public class WireCrossing {
     public static void main(String[] args) {
-        ArrayList<int[]> wireAPositions = getWirePositions(FileLoader.loadSingleLineCommaStringFile("inputfiles/day03.dat", 1));
-        ArrayList<int[]> wireBPositions = getWirePositions(FileLoader.loadSingleLineCommaStringFile("inputfiles/day03.dat", 2));
+        ArrayList<int[]> wireAPositions = getWirePositions(FileLoader.loadSingleLineCommaStringFile("input_files/day03.dat", 1));
+        ArrayList<int[]> wireBPositions = getWirePositions(FileLoader.loadSingleLineCommaStringFile("input_files/day03.dat", 2));
 
         ArrayList<Integer> distances = getDistances(findAllCrossings(wireAPositions, wireBPositions));
 
